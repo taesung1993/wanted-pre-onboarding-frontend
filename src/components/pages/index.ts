@@ -1,7 +1,7 @@
 import Todos from "./Todos";
-import Login from "./Login";
+import Auth from "./Auth";
 
 export default {
   Todos,
-  Login,
+  Auth,
 };

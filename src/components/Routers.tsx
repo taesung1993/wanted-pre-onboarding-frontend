@@ -8,7 +8,7 @@ import Pages from "./pages";
 const Routers = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<Pages.Login />} />
+      <Route index element={<Pages.Auth />} />
       <Route path="todo" element={<Pages.Todos />} />
     </Route>
   )

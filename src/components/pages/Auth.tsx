@@ -1,13 +1,10 @@
-import { FormEvent, useCallback, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import useLogged from "../../utils/hooks/useLogged";
-import { IToken } from "../../utils/models/interfaces/Token";
-import AuthService from "../../utils/services/Auth.service";
-import LocalStorageService from "../../utils/services/LocalStorage.service";
 import Organisms from "../organisms";
 import PublicRoute from "../PublicRoute";
 
-export default function Login() {
+export default function Auth() {
   const isLogged = useLogged();
   const [navItem, setNavItem] = useState("login");
 
