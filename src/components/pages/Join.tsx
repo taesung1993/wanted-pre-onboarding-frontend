@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Join() {
   return (
     <article>
       <section>
@@ -9,12 +9,14 @@ export default function Login() {
           <input type="email" id="email" />
           <label htmlFor="password">비밀번호</label>
           <input type="password" id="password" />
-          <button>로그인</button>
+          <label htmlFor="passwordConfirm">비밀번호 확인</label>
+          <input type="password" id="passwordConfirm" />
+          <button>회원가입</button>
         </form>
       </section>
       <section>
-        <Link to="../join" relative="path">
-          회원가입하기
+        <Link to="../login" relative="path">
+          로그인하기
         </Link>
       </section>
     </article>

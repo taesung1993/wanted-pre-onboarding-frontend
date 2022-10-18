@@ -10,6 +10,7 @@ const Routers = createBrowserRouter(
     <Route path="/">
       <Route index element={<Pages.Todos />} />
       <Route path="login" element={<Pages.Login />} />
+      <Route path="join" element={<Pages.Join />} />
     </Route>
   )
 );
