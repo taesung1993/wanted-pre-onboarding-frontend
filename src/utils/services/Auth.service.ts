@@ -13,7 +13,12 @@ class AuthService {
     );
   }
 
-  join() {}
+  join(body: { email: string; password: string }) {
+    return axios.post<IAccessToken>(
+      `${process.env.REACT_APP_API_URL}/auth/signup`,
+      body
+    );
+  }
 
   isExpired(expiredTime: number) {
     const diff = Date.now() - expiredTime;

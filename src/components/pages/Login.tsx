@@ -1,39 +1,15 @@
-import { FormEvent, useCallback } from "react";
+import { FormEvent, useCallback, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import useLogged from "../../utils/hooks/useLogged";
 import { IToken } from "../../utils/models/interfaces/Token";
 import AuthService from "../../utils/services/Auth.service";
 import LocalStorageService from "../../utils/services/LocalStorage.service";
+import Organisms from "../organisms";
 import PublicRoute from "../PublicRoute";
 
 export default function Login() {
-  const navigate = useNavigate();
   const isLogged = useLogged();
-
-  const onSubmit = useCallback(async (e: FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const {
-        data: { access_token: accessToken },
-      } = await AuthService.login({
-        email: "cheonyulin@gmail.com",
-        password: "135246asd@",
-      });
-
-      const token = {
-        value: accessToken,
-        expiredTime: Date.now(),
-      };
-
-      LocalStorageService.set<IToken>("token", token);
-      navigate("/todo", {
-        replace: true,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  const [navItem, setNavItem] = useState("login");
 
   if (isLogged) {
     return <Navigate to="/todo" replace />;
@@ -42,24 +18,25 @@ export default function Login() {
   return (
     <PublicRoute>
       <article>
-        <section>
-          <form onSubmit={onSubmit}>
-            <div>
-              <label htmlFor="email">이메일</label>
-              <input type="email" id="email" />
-            </div>
-            <div>
-              <label htmlFor="password">비밀번호</label>
-              <input type="password" id="password" />
-            </div>
-            <button>로그인</button>
-          </form>
-        </section>
-        <section>
-          <Link to="../join" relative="path">
-            회원가입하기
-          </Link>
-        </section>
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <button onClick={() => setNavItem("login")}>로그인</button>
+              </li>
+              <li>
+                <button onClick={() => setNavItem("join")}>회원가입</button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          {navItem === "login" ? (
+            <Organisms.LoginForm />
+          ) : (
+            <Organisms.JoinForm />
+          )}
+        </main>
       </article>
     </PublicRoute>
   );
