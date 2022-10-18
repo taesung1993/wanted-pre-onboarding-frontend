@@ -4,7 +4,7 @@ import LocalStorageService from "./LocalStorage.service";
 
 class AuthService {
   accessToken: string | null = null;
-  limitTime = 5000;
+  limitTime = 60 * 60 * 1000;
 
   login(body: { email: string; password: string }) {
     return axios.post<IAccessToken>(
