@@ -5,12 +5,18 @@ export default function Join() {
     <article>
       <section>
         <form action="">
-          <label htmlFor="email">이메일</label>
-          <input type="email" id="email" />
-          <label htmlFor="password">비밀번호</label>
-          <input type="password" id="password" />
-          <label htmlFor="passwordConfirm">비밀번호 확인</label>
-          <input type="password" id="passwordConfirm" />
+          <div>
+            <label htmlFor="email">이메일</label>
+            <input type="email" id="email" />
+          </div>
+          <div>
+            <label htmlFor="password">비밀번호</label>
+            <input type="password" id="password" />
+          </div>
+          <div>
+            <label htmlFor="passwordConfirm">비밀번호 확인</label>
+            <input type="password" id="passwordConfirm" />
+          </div>
           <button>회원가입</button>
         </form>
       </section>
