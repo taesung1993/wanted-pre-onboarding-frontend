@@ -4,6 +4,7 @@ import { emailRegex, passwordRegex } from "../../utils/constants/regex";
 import { IToken } from "../../utils/models/interfaces/Token";
 import AuthService from "../../utils/services/Auth.service";
 import LocalStorageService from "../../utils/services/LocalStorage.service";
+import Atoms from "../atoms";
 import Molecules from "../molecules";
 
 export default function JoinForm() {
@@ -103,7 +104,7 @@ export default function JoinForm() {
 
   return (
     <section>
-      <form onSubmit={onSubmit}>
+      <Atoms.Form onSubmit={onSubmit}>
         <Molecules.FormInput
           id="email"
           type="email"
@@ -125,12 +126,18 @@ export default function JoinForm() {
           error={error["confirmPassword"]}
           onChange={handleInput}
         />
-        <button disabled={isSubmitted}>로그인</button>
-      </form>
-      <dialog open={!!joinError}>
-        <p>{joinError}</p>
-        <button onClick={() => setJoinError(null)}>닫기</button>
-      </dialog>
+        <Atoms.Button disabled={isSubmitted} width="100%">
+          로그인
+        </Atoms.Button>
+      </Atoms.Form>
+      {joinError && (
+        <Molecules.Modal
+          type="error"
+          title="회원가입 에러"
+          message={joinError}
+          onClose={() => setJoinError(null)}
+        />
+      )}
     </section>
   );
 }

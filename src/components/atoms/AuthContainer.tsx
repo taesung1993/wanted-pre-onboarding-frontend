@@ -27,6 +27,39 @@ const AuthContainer = styled.article`
       }
     }
   }
+
+  & > section:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    height: 470px;
+
+    & > main {
+      flex: 1;
+      & > section {
+        height: 100%;
+        form {
+          height: 100%;
+          position: relative;
+
+          button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 5px;
+            border: none;
+            background-color: #28c76f;
+            color: #fff;
+
+            &:disabled {
+              background-color: #ddd !important;
+              color: #ccc !important;
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default AuthContainer;

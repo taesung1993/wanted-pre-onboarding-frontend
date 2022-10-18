@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
+import Atoms from "../atoms";
 
 export default function AuthHeader() {
   const { hash } = useLocation();
@@ -14,7 +15,7 @@ export default function AuthHeader() {
                 !hash || hash === "#login" ? "active" : undefined
               }
             >
-              <span>로그인</span>
+              <Atoms.Title2 color="inherit">로그인</Atoms.Title2>
             </NavLink>
           </li>
           <li>
@@ -22,7 +23,7 @@ export default function AuthHeader() {
               to="#join"
               className={() => (hash === "#join" ? "active" : undefined)}
             >
-              <span>회원가입</span>
+              <Atoms.Title2 color="inherit">회원가입</Atoms.Title2>
             </NavLink>
           </li>
         </ul>

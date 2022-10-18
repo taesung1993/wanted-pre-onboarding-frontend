@@ -19,10 +19,10 @@ export default function Auth({ children }: Props) {
           </Atoms.Title1>
         </Atoms.Div>
       </section>
-      <section>
+      <Atoms.AuthWrapper>
         <Organisms.AuthHeader />
         <main>{children}</main>
-      </section>
+      </Atoms.AuthWrapper>
     </Atoms.AuthContainer>
   );
 }

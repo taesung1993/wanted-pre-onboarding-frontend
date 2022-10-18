@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import Atoms from "../atoms";
 
 interface Props {
   id: string;
@@ -10,10 +11,15 @@ interface Props {
 
 export default function FormInput({ id, type, title, error, onChange }: Props) {
   return (
-    <div>
-      <label htmlFor={id}>{title}</label>
-      <input type={type} id={id} onChange={(e) => onChange(e, id)} />
+    <Atoms.FormInputWrapper>
+      <Atoms.FormLabel htmlFor={id}>{title}</Atoms.FormLabel>
+      <Atoms.FormInput
+        type={type}
+        id={id}
+        onChange={(e: ChangeEvent) => onChange(e, id)}
+        className={error ? "error" : undefined}
+      />
       {error && <p>{error}</p>}
-    </div>
+    </Atoms.FormInputWrapper>
   );
 }
