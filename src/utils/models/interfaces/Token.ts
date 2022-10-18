@@ -3,6 +3,6 @@ export interface IAccessToken {
 }
 
 export interface IToken {
-  accessToken: string;
+  value: string;
   expiredTime: number;
 }

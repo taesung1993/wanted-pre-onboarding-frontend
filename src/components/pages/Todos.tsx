@@ -1,3 +1,9 @@
+import ProtectedRoute from "../ProtectedRoute";
+
 export default function Todos() {
-  return <article>Todos</article>;
+  return (
+    <ProtectedRoute>
+      <article>Todos</article>
+    </ProtectedRoute>
+  );
 }
