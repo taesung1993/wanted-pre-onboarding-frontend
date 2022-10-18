@@ -10,7 +10,7 @@ export default function ProtectedRoute({ children }: Props) {
   const isLogged = useLogged();
 
   if (!isLogged) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return <>{children}</>;

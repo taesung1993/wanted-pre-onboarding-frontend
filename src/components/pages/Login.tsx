@@ -27,7 +27,7 @@ export default function Login() {
       };
 
       LocalStorageService.set<IToken>("token", token);
-      navigate("/", {
+      navigate("/todo", {
         replace: true,
       });
     } catch (error) {
@@ -36,7 +36,7 @@ export default function Login() {
   }, []);
 
   if (isLogged) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/todo" replace />;
   }
 
   return (

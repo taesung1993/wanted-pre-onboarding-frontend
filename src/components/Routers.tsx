@@ -8,9 +8,8 @@ import Pages from "./pages";
 const Routers = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route index element={<Pages.Todos />} />
-      <Route path="login" element={<Pages.Login />} />
-      <Route path="join" element={<Pages.Join />} />
+      <Route index element={<Pages.Login />} />
+      <Route path="todo" element={<Pages.Todos />} />
     </Route>
   )
 );
