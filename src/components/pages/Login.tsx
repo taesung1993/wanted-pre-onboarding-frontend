@@ -1,11 +1,15 @@
 import { FormEvent, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import useLogged from "../../utils/hooks/useLogged";
 import { IToken } from "../../utils/models/interfaces/Token";
 import AuthService from "../../utils/services/Auth.service";
 import LocalStorageService from "../../utils/services/LocalStorage.service";
 import PublicRoute from "../PublicRoute";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const isLogged = useLogged();
+
   const onSubmit = useCallback(async (e: FormEvent) => {
     e.preventDefault();
 
@@ -23,10 +27,17 @@ export default function Login() {
       };
 
       LocalStorageService.set<IToken>("token", token);
+      navigate("/", {
+        replace: true,
+      });
     } catch (error) {
       console.log(error);
     }
   }, []);
+
+  if (isLogged) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <PublicRoute>

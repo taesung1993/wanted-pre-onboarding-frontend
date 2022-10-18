@@ -7,6 +7,10 @@ class LocalStorageService {
     const value = localStorage.getItem(key);
     return value ? JSON.parse(value) : null;
   }
+
+  remove(key: string) {
+    localStorage.removeItem(key);
+  }
 }
 
 export default new LocalStorageService();
