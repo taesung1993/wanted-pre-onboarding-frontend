@@ -10,6 +10,8 @@ import AuthWrapper from "./AuthWrapper";
 import Button from "./Button";
 import Form from "./Form";
 import ModalContainer from "./ModalContainer";
+import TodosContainer from "./TodosContainer";
+import Heading1 from "./Heading1";
 
 export default {
   AuthContainer,
@@ -24,4 +26,6 @@ export default {
   ModalContainer,
   AuthWrapper,
   Form,
+  TodosContainer,
+  Heading1,
 };
