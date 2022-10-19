@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# wanted-pre-onboarding-frontend
+### 사용한 라이브러리
+- axios
+- react-router-dom
+- styled-components
+- react-icons
+### 디렉터리 구조
+```bash
+src
+├── components
+│   ├── atoms
+│   ├── molecules
+│   └── organisms
+│   └── pages
+│   └── templates
+├── utils
+    ├── constants
+    ├── hooks
+    ├── models
+    └── services
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+``` 
+### 사용방법
+1. 개발 환경 모드는 npm run start 명령어를 실행합니다.
+2. Prod 환경 모드는 npm run build 후 serve -s build 명령어를 입력해주세요.
 
-## Available Scripts
+### 특징
+1. 아토믹 디자인 패턴 사용: 가장 작은 컴포넌트 단위를 원자로 설정하고, 이것을 바탕으로 상위 컴포넌트를 만드는 방식입니다. 컴포넌트 설계를 할 때 독립성과 재사용성에 대해 고민을 많이 합니다. 큰 컴포넌트는 독립성을 갖고 있지만, 이것을 하나하나 분해해보면 알게모르게 디자인 요소가 재사용이 되는 것들이 꽤 많습니다. 그래서 styled-components를 이용하여 원자 형태의 스타일 컴포넌트를 만들어 기능과 합친 분자(molecules), 유기체(organisms), 템플릿(templates)으로 가서 최종적으로 페이지를 관리할 수 있게 하였습니다. 분자는 원자 컴포넌트들만 구성해서 짜도록하였고, 유기체의 경우에는 원자, 분자, 같은 단위인 유기체로 이루어진 컴포넌트로 구성하여, 독립성을 추구하였습니다.
+2. 서비스: Angular2 프레임워크에서 아이디어를 얻었습니다. 리액트와 다르게 앵귤러는 서비스 단위로 의존성을 주입하여 전역 상태를 관리합니다. 그 뿐만 아니라, 전역 상태를 동작시키는 함수도 클래스에 넣어서 선언합니다. 각각의 API 호출 함수를 함수 표현식을 이용하여 선언하는 것보다는 함수가 공통적으로 관리해야하는 루트 카테고리를 클래스로 만들어 동작을 관리하는 것이 코드의 가독성을 높일 수 있다고 판단하여 이렇게 사용하였습니다.  
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 배포 링크
+https://react-onboarding-frontend.uw.r.appspot.com/
