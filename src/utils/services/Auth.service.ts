@@ -7,17 +7,11 @@ class AuthService {
   limitTime = 60 * 60 * 1000;
 
   login(body: { email: string; password: string }) {
-    return axios.post<IAccessToken>(
-      `${process.env.REACT_APP_API_URL}/auth/signin`,
-      body
-    );
+    return axios.post<IAccessToken>(`/auth/signin`, body);
   }
 
   join(body: { email: string; password: string }) {
-    return axios.post<IAccessToken>(
-      `${process.env.REACT_APP_API_URL}/auth/signup`,
-      body
-    );
+    return axios.post<IAccessToken>(`/auth/signup`, body);
   }
 
   isExpired(expiredTime: number) {

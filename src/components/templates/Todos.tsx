@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import Atoms from "../atoms";
 import { FaUnlockAlt } from "react-icons/fa";
 import LocalStorageService from "../../utils/services/LocalStorage.service";
-import { Navigate } from "react-router-dom";
 
 interface Props {
   children: React.ReactNode;
