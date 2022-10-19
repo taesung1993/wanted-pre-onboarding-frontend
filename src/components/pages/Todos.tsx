@@ -1,10 +1,12 @@
 import ProtectedRoute from "../ProtectedRoute";
+import Templates from "../templates";
 
 export default function Todos() {
-  console.log("todos");
   return (
     <ProtectedRoute>
-      <article>Todos</article>
+      <Templates.Todos>
+        <div>Todos</div>
+      </Templates.Todos>
     </ProtectedRoute>
   );
 }
