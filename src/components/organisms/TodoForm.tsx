@@ -10,8 +10,6 @@ import Molecules from "../molecules";
 import { FaPlus } from "react-icons/fa";
 import TodosService from "../../utils/services/Todos.service";
 import { TodosContext } from "../pages/Todos";
-import { error } from "console";
-import { TbTarget } from "react-icons/tb";
 
 export default function TodoForm() {
   const [todo, setTodo] = useState<string>("");
