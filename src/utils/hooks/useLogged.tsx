@@ -6,7 +6,7 @@ import LocalStorageService from "../services/LocalStorage.service";
 export default function useLogged() {
   const token = LocalStorageService.get<IToken>("token");
   const isLogged = useMemo(() => {
-    if (token) {
+    if (token && token.value) {
       return AuthService.isExpired(token.expiredTime);
     }
 
