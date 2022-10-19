@@ -1,12 +1,7 @@
 import { useContext, useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import { ITodo } from "../../utils/models/interfaces/Todo";
 import Atoms from "../atoms";
 import { TodosContext } from "../pages/Todos";
-
-interface Props {
-  todos: ITodo[];
-}
 
 export default function EmptyTodos() {
   const { hash } = useLocation();
