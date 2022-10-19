@@ -4,6 +4,7 @@ const FormInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 100%;
 
   p {
     margin-top: 4px;

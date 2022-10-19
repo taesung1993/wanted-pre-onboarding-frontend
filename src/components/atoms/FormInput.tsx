@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
-const FormInput = styled.input`
-  width: 100%;
-  height: 56px;
+interface Props {
+  border?: string;
+  width?: string;
+  height?: string;
+}
+
+const FormInput = styled.input<Props>`
+  width: ${(props) => props.width || "100%"};
+  height: ${(props) => props.height || "56px"};
   font-size: 16px;
   padding: 14px;
   color: #222222;
-  border: 1px solid #dddddd;
+  border: ${(props) => props.border || "1px solid #ddd"};
   border-radius: 5px;
   background-color: #fff;
 

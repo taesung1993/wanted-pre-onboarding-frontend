@@ -7,6 +7,7 @@ interface Props {
   color?: string;
   backgroundColor?: string;
   borderRadius?: string;
+  border?: string;
 }
 
 const Button = styled.button<Props>`
@@ -16,7 +17,7 @@ const Button = styled.button<Props>`
   font-size: ${(props) => props.fontSize || "18px"};
   color: ${(props) => props.color || "#1c1c1c"};
   background-color: ${(props) => props.backgroundColor || "transparent"};
-  border: none;
+  border: ${(props) => props.border || "none"};
   border-radius: ${(props) => props.borderRadius || "none"};
 `;
 

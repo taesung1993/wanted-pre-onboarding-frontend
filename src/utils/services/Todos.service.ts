@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import { ITodo } from "../models/interfaces/Todo";
 import { IToken } from "../models/interfaces/Token";
 import LocalStorageService from "./LocalStorage.service";
 
@@ -6,29 +7,45 @@ class TodosService {
   create(todo: string) {
     const { value: accessToken } = LocalStorageService.get<IToken>("token");
     const body = { todo };
-    return axios.post(`${process.env.REACT_APP_API_URL}/todos`, body, {
+
+    return axios.post<ITodo>(`${process.env.REACT_APP_API_URL}/todos`, body, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
   }
 
-  get() {
+  get(initialLoad?: boolean): Promise<AxiosResponse<ITodo[]>> {
     const { value: accessToken } = LocalStorageService.get<IToken>("token");
-    return axios.get(`${process.env.REACT_APP_API_URL}/todos`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
+
+    return new Promise((resolve) => {
+      setTimeout(
+        () => {
+          resolve(
+            axios.get<ITodo[]>(`${process.env.REACT_APP_API_URL}/todos`, {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+              },
+            })
+          );
+        },
+        initialLoad ? 1000 : 0
+      );
     });
   }
 
   update(id: number, payload: { todo?: string; isCompleted?: boolean }) {
     const { value: accessToken } = LocalStorageService.get<IToken>("token");
-    return axios.put(`${process.env.REACT_APP_API_URL}/todos/${id}`, payload, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+
+    return axios.put<ITodo>(
+      `${process.env.REACT_APP_API_URL}/todos/${id}`,
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
   }
 
   delete(id: number) {

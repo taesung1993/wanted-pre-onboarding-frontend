@@ -10,6 +10,20 @@ const TodosContainer = styled.article`
     height: 100%;
     margin: 0 auto;
     padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    header {
+      padding: 20px 0;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
   }
 `;
 

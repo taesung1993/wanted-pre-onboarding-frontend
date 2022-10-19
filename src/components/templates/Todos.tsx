@@ -1,4 +1,5 @@
 import React from "react";
+import Atoms from "../atoms";
 
 interface Props {
   children: React.ReactNode;
@@ -6,13 +7,13 @@ interface Props {
 
 export default function Todos({ children }: Props) {
   return (
-    <article>
+    <Atoms.TodosContainer>
       <section>
         <header>
-          <h1>오늘의 할일 정하기</h1>
+          <Atoms.Heading1>오늘의 할일 정하기</Atoms.Heading1>
         </header>
         <main>{children}</main>
       </section>
-    </article>
+    </Atoms.TodosContainer>
   );
 }
