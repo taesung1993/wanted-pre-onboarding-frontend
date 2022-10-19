@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useEffect } from "react";
-import { ChangeEvent, forwardRef } from "react";
+import { ChangeEvent } from "react";
 import Atoms from "../atoms";
 
 interface Props {
@@ -45,7 +45,6 @@ export default function FormInput({
         type={type}
         id={id}
         placeholder={placeholder || ""}
-        value={value || undefined}
         onChange={(e: ChangeEvent) => onChange(e, id)}
         className={error ? "error" : undefined}
         {...style}

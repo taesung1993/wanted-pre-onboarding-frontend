@@ -19,12 +19,15 @@ export default function TodoForm() {
     const { value } = e.target as HTMLInputElement;
     setTodo(value);
   }, []);
+
   const onSubmit = useCallback(
     async (e: FormEvent) => {
       e.preventDefault();
+      const target = e.target as HTMLFormElement;
+      const input = target.querySelector("input") as HTMLInputElement;
       try {
-        setTodo("");
         await TodosService.create(todo!);
+        input.value = "";
         onUpdate();
       } catch (error) {
         console.log(error);
