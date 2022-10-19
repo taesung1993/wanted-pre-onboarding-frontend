@@ -8,11 +8,16 @@ class TodosService {
     const { value: accessToken } = LocalStorageService.get<IToken>("token");
     const body = { todo };
 
-    return axios.post<ITodo>(`/todos`, body, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    return axios.post<ITodo>(
+      `https://pre-onboarding-selection-task.shop/todos`,
+      body,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
   }
 
   get(initialLoad?: boolean): Promise<AxiosResponse<ITodo[]>> {
@@ -22,11 +27,15 @@ class TodosService {
       setTimeout(
         () => {
           resolve(
-            axios.get<ITodo[]>(`/todos`, {
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-              },
-            })
+            axios.get<ITodo[]>(
+              `https://pre-onboarding-selection-task.shop/todos`,
+              {
+                headers: {
+                  Authorization: `Bearer ${accessToken}`,
+                  "Content-Type": "application/json",
+                },
+              }
+            )
           );
         },
         initialLoad ? 1000 : 0
@@ -37,20 +46,29 @@ class TodosService {
   update(id: number, payload: { todo?: string; isCompleted?: boolean }) {
     const { value: accessToken } = LocalStorageService.get<IToken>("token");
 
-    return axios.put<ITodo>(`/todos/${id}`, payload, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    return axios.put<ITodo>(
+      `https://pre-onboarding-selection-task.shop/todos/${id}`,
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
   }
 
   delete(id: number) {
     const { value: accessToken } = LocalStorageService.get<IToken>("token");
-    return axios.delete(`/todos/${id}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    return axios.delete(
+      `https://pre-onboarding-selection-task.shop/todos/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
   }
 }
 

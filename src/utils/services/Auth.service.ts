@@ -7,11 +7,27 @@ class AuthService {
   limitTime = 60 * 60 * 1000;
 
   login(body: { email: string; password: string }) {
-    return axios.post<IAccessToken>(`/auth/signin`, body);
+    return axios.post<IAccessToken>(
+      `https://pre-onboarding-selection-task.shop/auth/signin`,
+      body,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   }
 
   join(body: { email: string; password: string }) {
-    return axios.post<IAccessToken>(`/auth/signup`, body);
+    return axios.post<IAccessToken>(
+      `https://pre-onboarding-selection-task.shop/auth/signup`,
+      body,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   }
 
   isExpired(expiredTime: number) {

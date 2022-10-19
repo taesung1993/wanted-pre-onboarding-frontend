@@ -25,14 +25,14 @@ export default function TodoForm() {
     async (e: FormEvent) => {
       e.preventDefault();
       try {
+        setTodo("");
         await TodosService.create(todo!);
         onUpdate();
-        setTodo("");
       } catch (error) {
         console.log(error);
       }
     },
-    [onUpdate, todo]
+    [onUpdate, todo, setTodo]
   );
 
   return (
